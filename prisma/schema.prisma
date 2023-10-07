@@ -40,6 +40,8 @@ model User {
     id            String    @id @default(cuid())
     name          String?
     bio           String?
+    followers     User[] @relation(name: "Followers")
+    follows     User[] @relation(name: "Followers")
     email         String?   @unique
     emailVerified DateTime?
     image         String?
