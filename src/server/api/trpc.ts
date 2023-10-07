@@ -52,6 +52,7 @@ interface CreateContextOptions {
 export const createInnerTRPCContext = (opts: CreateContextOptions) => {
   return {
     session: opts.session,
+    revalidateSSG: opts.revalidateSSG,
     prisma,
   };
 };
