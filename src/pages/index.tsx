@@ -1,5 +1,7 @@
+import { useSession } from "next-auth/react";
 import Head from "next/head";
 import { InfiniteUserList } from "~/components/InfiniteUserList";
+import { LoggedOutLanding } from "~/components/LoggedOutLanding";
 import { api } from "~/utils/api";
 
 function Users() {
@@ -18,6 +20,7 @@ function Users() {
   )
 }
 export default function Home() {
+  const session = useSession();
   return (
     <>
       <Head>
@@ -26,7 +29,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <Users />
+        {session.status === "authenticated" ? <Users /> : <LoggedOutLanding /> }
       </div>
     </>
   );
