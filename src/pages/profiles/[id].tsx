@@ -36,7 +36,6 @@ const ProfilePage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
     },
   });
 
-  //if (profile == null || profile.name == null) {
   if (profile == null) {
     return <LoadingSpinner />;
   }
@@ -64,6 +63,9 @@ const ProfilePage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
               {getPlural(profile.followersCount, "Follower", "Followers")} -{" "}
               {profile.followsCount} Following
             </div>
+            {profile.bio && (
+              <p className="text-gray-500">{profile.bio}</p>
+            )}
           </div>
           <FollowButton
             isFollowing={profile.isFollowing}

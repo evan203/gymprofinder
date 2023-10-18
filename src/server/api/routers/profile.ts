@@ -66,7 +66,19 @@ export const profileRouter = createTRPCRouter({
 
       return { addedFollow };
     }),
+    updateProfileInfo: protectedProcedure
+    .input(z.object({ name: z.string(), bio: z.string() }))
+    .mutation(async ({ input: { name, bio }, ctx }) => {
+      const currentUserId = ctx.session.user.id;
 
+      // Update the user's name and bio in the database
+      const updatedUser = await ctx.prisma.user.update({
+        where: { id: currentUserId },
+        data: { name, bio },
+      });
+
+      return { name: updatedUser.name, bio: updatedUser.bio };
+    }),
   // pasted from tweet.ts; changed getInfiniteUsers
   infiniteFeed: publicProcedure
     .input(
