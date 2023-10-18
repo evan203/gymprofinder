@@ -52,7 +52,7 @@ export function InfiniteUserList({
 
 function UserCard({ id, name, image }: User) {
   return (
-    <li className="flex gap-4 border-b px-4 py-4">
+    <div className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20">
       <Link href={`/profiles/${id}`}>
         <ProfileImage src={image} />
       </Link>
@@ -66,7 +66,7 @@ function UserCard({ id, name, image }: User) {
           </Link>
         </div>
       </div>
-    </li>
+    </div>
   );
 }
 
