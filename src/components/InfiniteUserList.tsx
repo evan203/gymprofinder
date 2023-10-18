@@ -1,9 +1,6 @@
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { api } from '~/utils/api';
-import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { ProfileImage } from "./ProfileImage";
-import { IconHoverEffect } from "./IconHoverEffect";
 import { LoadingSpinner } from "./LoadingSpinner";
 
 type User = {
