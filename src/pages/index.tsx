@@ -16,7 +16,7 @@ function LoggedInHome() {
           <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
             Gym <span className="text-[#ff3333]">Pro</span> Finder
           </h1>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
+          <div className="grid grid-cols-1 gap-4 md:gap-8">
               <InfiniteUserList 
                 users={users.data?.pages.flatMap((page) => page.users)}
                 isError={users.isError}
