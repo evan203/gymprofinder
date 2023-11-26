@@ -47,6 +47,7 @@ model User {
     image         String?
     accounts      Account[]
     sessions      Session[]
+    workoutDates  WorkoutDate[]
 }
 
 model VerificationToken {
@@ -55,4 +56,20 @@ model VerificationToken {
     expires    DateTime
 
     @@unique([identifier, token])
+}
+
+model WorkoutDate {
+    id        String   @id @default(cuid())
+    userId    String
+    date      DateTime
+    exercises Exercise[]
+    user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Exercise {
+    id            String   @id @default(cuid())
+    workoutDateId String
+    name          String
+    sets          Json    @db.Json
+    workoutDate   WorkoutDate @relation(fields: [workoutDateId], references: [id], onDelete: Cascade)
 }
