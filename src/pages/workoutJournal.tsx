@@ -6,7 +6,7 @@ import { api } from "~/utils/api";
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import WorkoutAddButton from "~/components/workoutAddButton";
+import WorkoutAddButton from "~/components/WorkoutAddButton";
 // CSS Modules, react-datepicker-cssmodules.css
 // import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
