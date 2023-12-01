@@ -49,7 +49,7 @@ const ProfilePage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
         <title>{`GymProFinder: ${profile.name}`}</title>
       </Head>
       <main>
-        <div className="min-h-screen sticky top-0 z-10 flex items-center border-b bg-white px-4 py-2">
+        <div className=" flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#870000] to-[#250000]">
           <Link href=".." className="mr-2">
             <IconHoverEffect>
               <VscArrowLeft className="h-6 w-6" />
@@ -57,14 +57,14 @@ const ProfilePage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
           </Link>
           <ProfileImage src={profile.image} className="flex-shrink-0" />
           <div className="ml-2 flex-grow">
-            <h1 className="text-lg font-bold">{profile.name}</h1>
-            <div className="text-gray-500">
+            <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">{profile.name}</h1>
+            <div className="text-gray-200">
               {profile.followersCount}{" "}
               {getPlural(profile.followersCount, "Follower", "Followers")} -{" "}
               {profile.followsCount} Following
             </div>
             {profile.bio && (
-              <p className="text-gray-500">{profile.bio}</p>
+              <p className="text-gray-300">{profile.bio}</p>
             )}
           </div>
           <FollowButton
